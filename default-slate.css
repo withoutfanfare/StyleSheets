@@ -1,24 +1,27 @@
 @media (prefers-color-scheme: light) {
-  html {
-      --text-color: #FFFFFF;
-      --text-color-muted: #b1b1da;
-      --text-color-alt: #ccccec;
-      --bg-color: #0e0e16;
-      --bg-color-light: #232337;
-      --accent-color: #e7b500;
-      --accent-color-alt: #ff8f15;
+  html { 
+      --text-color: #0f172a;  
+      --text-color-muted: #16223c;  
+      --text-color-alt: #0f172a;   
+      --bg-color: #ffffff;  
+      --bg-color-dark: #dddddd;  
+      --bg-color-light: #eeeeee;  
+      --accent-color: #fbbf24;
+      --accent-color-alt: #f59e0b;
   }
 }
 
 @media (prefers-color-scheme: dark) {
-  html {
-      --text-color: #FFFFFF;
-      --text-color-muted: #b1b1da;
-      --text-color-alt: #ccccec;
-      --bg-color: #0e0e16;
-      --bg-color-light: #232337;
-      --accent-color: #e7b500;
-      --accent-color-alt: #ff8f15;
+  html { 
+      --text-color: #FFFFFF; 
+      --text-color-muted: #e2e8f0;  
+      --text-color-code: #cbd5e1;   
+      --text-color-alt: #f1f5f9;   
+      --bg-color: #0f172a; 
+      --bg-color-dark: #0b101e; 
+      --bg-color-light: #1e293b; 
+      --accent-color: #fbbf24;
+      --accent-color-alt: #f59e0b;
   }
 }
 
@@ -26,6 +29,9 @@
 html {
   background: var(--bg-color);
   background-color: var(--bg-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
 }
 
 div#header, header
@@ -46,7 +52,7 @@ text-align: center;
 }
 
 /* Pandoc table of contents DIV when using the --toc option.
-NOTE: this doesn't support Pandoc's --id-prefix option for #TOC and #header.
+NOTE: this doesn't support Pandoc's --id-prefix option for #TOC and #header. 
 Probably would need to use div[id$='TOC'] and div[id$='header'] as selectors.
 */
 
@@ -73,11 +79,11 @@ body {
   -webkit-text-size-adjust: 100%;
   color: var(--text-color-muted);
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.8;
   word-wrap: break-word;
-  margin: 2.5em;
-  font-weight: 400;
+  margin: 1em 2em;
+  font-weight: 300;
 }
 
 /* ---- Headers and sections ---- */
@@ -86,59 +92,68 @@ h1, h2, h3, h4, h5, h6
 {
 /* font-family: "Helvetica Neue", Helvetica, "Liberation Sans", Calibri, Arial, sans-serif; /* Sans-serif headers */ */
 /* font-family: "Liberation Serif", "Georgia", "Times New Roman", serif; /* Serif headers */
-
 page-break-after: avoid; /* Firefox, Chrome, and Safari do not support the property value "avoid" */
 color: var(--text-color);
-font-weight: 600;
-}
-
-h1, h2
-{
-border-bottom: 1px solid var(--bg-color-light);
-padding-bottom: .3em;
-}
-
-h1 {
-font-size: 2em !important;
 font-weight: 900;
 }
 
+h1, h2 
+{
+padding-bottom: 0.2em;
+letter-spacing: 1px;
+}
+
+h1 {
+border-bottom: 8px solid var(--bg-color-light);
+border-radius: 3px;
+font-size: 1.8em !important; 
+font-weight: 900;
+} 
+
 h2 {
-font-size: 1.85em !important;
-font-weight: 800;
+border-bottom: 5px solid var(--bg-color-light);
+border-radius: 3px;
+font-size: 1.6em !important;
+font-weight: 900;
 }
 
 h3 {
-font-size: 1.65em !important;
-font-weight: 700;
+font-size: 1.4em !important;
+font-weight: 600;
+color: var(--text-color-muted);
 }
 
 h4 {
-font-size: 1.45em !important;
-margin-bottom: 1em;
+font-size: 1.2em !important;
+margin-bottom: 0.5em;
+font-weight: 600;
+color: var(--text-color-muted);
 }
 
 h5 {
-font-size: 1.25em !important;
+font-size: 1.1em !important;
 margin-bottom: 0.8em;
+font-weight: 600;
+color: var(--text-color-muted);
 }
 
 h6 {
-font-size: 1.15em !important;
-margin-bottom: 0.6em;
+font-size: 1em !important; 
+margin-bottom: 0.5em;
+font-weight: 500;
 }
 
 /* Pandoc with --section-divs option */
 
 div div, section section /* Nested sections */
 {
-margin-left: 2em; /* This will increasingly indent nested header sections */
+margin-left: 1em; /* This will increasingly indent nested header sections */
 }
 
 p {}
 
 blockquote
-{
+{ 
 font-style: italic;
 }
 
@@ -148,11 +163,12 @@ li /* All list items */
 
 li > p /* Loosely spaced list item */
 {
-margin-top: 1em; /* IE: lack of space above a <li> when the item is inside a <p> */
+margin-top: .5em; /* IE: lack of space above a <li> when the item is inside a <p> */
 }
 
 ul /* Whole unordered list */
 {
+  padding: 0px 0px 0px 2rem;
 }
 
 ul li /* Unordered list item */
@@ -168,8 +184,10 @@ ol li /* Ordered list item */
 }
 
 hr {
-margin-top: 2em;
-margin-bottom: 2em;
+margin-top: 2em; 
+margin-bottom: 1em;
+border: 8px solid var(--bg-color-light);
+border-radius: 3px;
 }
 
 /* ---- Some span elements --- */
@@ -225,7 +243,7 @@ a   {
 a[href^="http://"]:after, a[href^="https://"]:after
     {
     /* However, links that go somewhere else, might be useful to the reader,
-       so for http and https links, print the URL after what was the link
+       so for http and https links, print the URL after what was the link 
        text in parens
     */
     content: " (" attr(href) ") ";
@@ -237,9 +255,9 @@ a[href^="http://"]:after, a[href^="https://"]:after
 
 img
 {
-/* Let it be inline left/right where it wants to be, but verticality make
-   it in the middle to look nicer, but opinions differ, and if in a multi-line
-   paragraph, it might not be so great.
+/* Let it be inline left/right where it wants to be, but verticality make 
+   it in the middle to look nicer, but opinions differ, and if in a multi-line 
+   paragraph, it might not be so great. 
 */
 vertical-align: middle;
 max-width: 100%;
@@ -262,16 +280,16 @@ p.caption /* Pandoc figure-style caption within div.figure */
 
 /* ---- Code blocks and spans ---- */
 
-pre, code
+pre, code 
 {
-margin-top: 2em;
-margin-bottom: 0.6em;
-background-color: var(--bg-color-light);
-background: var(--bg-color-light);
-color: var(--text-color-alt);
-font-size: 90%;
-line-height: 1.4;
-font-weight: 300;
+margin-top: 1em;
+margin-bottom: 1em;
+background-color: var(--bg-color-dark);
+background: var(--bg-color-dark);
+color: var(--text-color-code);
+font-size: 92%;
+line-height: 1.2;
+font-weight: 200;
 /* BEGIN word wrap */
 /* Need all the following to word wrap instead of scroll box */
 /* This will override the overflow:auto if present */
@@ -286,14 +304,13 @@ word-wrap: break-word; /* Internet Explorer 5.5+ */
 pre /* Code blocks */
 {
 /* Distinguish pre blocks from other text by more than the font with a background tint. */
-padding: 0.4em 1em; /* Since we have a background color */
-border-radius: 13px; /* Softens it */
+padding: 1.4em 1.4em; /* Since we have a background color */
+border-radius: 19px; /* Softens it */
 /* Give it a some definition */
 /* border: 1px solid var(--text-color-muted); */
 /* Set it off left and right, seems to look a bit nicer when we have a background */
-margin-left:  0.2em;
-margin-right: 0.2em;
-background-color: var(--bg-color-light);
+margin-left:  0em;
+margin-right: 0em;
 }
 
 @media screen
@@ -304,7 +321,7 @@ pre
     white-space: pre;
     overflow: auto;
     /* Dotted looks better on screen and solid seems to print better. */
-    border: 1px solid var(--bg-color-light);
+    border: 1px solid var(--bg-color-dark);
     }
 }
 
@@ -338,15 +355,15 @@ div.math /* Pandoc --jsmath display math */
 
 span.LaTeX /* Pandoc --latexmathml math */
 {
-}
+} 
 
 eq /* Pandoc --gladtex math */
 {
-}
+} 
 
 /* ---- Tables ---- */
 
-/*  A clean textbook-like style with horizontal lines above and below and under
+/*  A clean textbook-like style with horizontal lines above and below and under 
 the header. Rows highlight on hover to help scanning the table on screen.
 */
 
@@ -355,8 +372,8 @@ table
 border-collapse: collapse;
 border-spacing: 0; /* IE 6 */
 
-border-bottom: 2pt solid var(--bg-color-light);
-border-top: 2pt solid var(--bg-color-light); /* The caption on top will not have a bottom-border */
+border-bottom: 2pt solid var(--bg-color-dark);
+border-top: 2pt solid var(--bg-color-dark); /* The caption on top will not have a bottom-border */
 
 /* Center */
 /*margin-left: auto;
@@ -365,13 +382,13 @@ margin-right: auto;*/
 
 thead /* Entire table header */
 {
-border-bottom: 1pt solid var(--bg-color-light);
+border-bottom: 1pt solid var(--bg-color-dark);
 background-color: #eee; /* Does this BG print well? */
 }
 
 tr.header /* Each header row */
 {
-}
+} 
 
 tbody /* Entire table  body */
 {
@@ -391,7 +408,7 @@ tr.odd {}
 tr.even {}
 
 td, th /* Table cells and table header cells */
-{
+{ 
 vertical-align: top; /* Word */
 vertical-align: baseline; /* Others */
 padding-left:   0.5em;
@@ -406,7 +423,7 @@ tr td:last-child, tr th:last-child
 {
 padding-right: 0;
 }
-tr td:first-child, tr th:first-child
+tr td:first-child, tr th:first-child 
 {
 padding-left: 0;
 }
@@ -414,7 +431,7 @@ padding-left: 0;
 
 th /* Table header cells */
 {
-font-weight: bold;
+font-weight: bold; 
 }
 
 tfoot /* Table footer (what appears here if caption is on top?) */
@@ -436,19 +453,19 @@ padding-bottom: 0.2em;
 
 dl /* The whole list */
 {
-border-top: 2pt solid var(--bg-color-light);
+border-top: 2pt solid var(--bg-color-dark);
 padding-top: 0.5em;
-border-bottom: 2pt solid var(--bg-color-light);
+border-bottom: 2pt solid var(--bg-color-dark);
 }
 
 dt /* Definition term */
 {
-font-weight: bold;
+font-weight: medium;
 }
 
 dd+dt /* 2nd or greater term in the list */
 {
-border-top: 1pt solid var(--bg-color-light);
+border-top: 1pt solid var(--bg-color-dark);
 padding-top: 0.5em;
 }
 
@@ -459,13 +476,13 @@ margin-bottom: 0.5em;
 
 dd+dd /* 2nd or greater definition of a term */
 {
-border-top: 1px solid var(--bg-color-light); /* To separate multiple definitions */
+border-top: 1px solid var(--bg-color-dark); /* To separate multiple definitions */
 }
 
 /* ---- Footnotes ---- */
 
 a.footnote, a.footnoteRef { /* Pandoc, MultiMarkdown footnote links */
-font-size: small;
+font-size: small; 
 vertical-align: text-top;
 }
 
@@ -490,9 +507,9 @@ div.footnotes li[id^="fn"] /* A footnote item within that div */
 {
 }
 
-/* You can class stuff as "noprint" to not print.
-Useful since you can't set this media conditional inside an HTML element's
-style attribute (I think), and you don't want to make another stylesheet that
+/* You can class stuff as "noprint" to not print. 
+Useful since you can't set this media conditional inside an HTML element's 
+style attribute (I think), and you don't want to make another stylesheet that 
 imports this one and adds a class just to do this.
 */
 
